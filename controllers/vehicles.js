@@ -32,5 +32,37 @@ exports.vehicles_list = async function(req, res) {
     }
     };
 
+    // VIEWS
+    // Handle a show all view
+    exports.vehicles_view_all_Page = async function(req, res) {
+    try{
+    thevehicles = await vehicles.find();
+    res.render('vehicles', { title: 'vehicles Search Results', results: thevehicles });
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+
+    // Handle vehicles create on POST.
+exports.vehicles_create_post = async function(req, res) {
+    console.log(req.body)
+    let document = new vehicles();
+    document.name = req.body.name;
+    document.mileage = req.body.mileage;
+    document.price = req.body.price;
+    try{
+    let result = await document.save();
+    res.send(result);
+    }
+    catch(err){
+    res.status(500);
+    res.send(`{"error": ${err}}`);
+    }
+    };
+    
+    
+
 
 
