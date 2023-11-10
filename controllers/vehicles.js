@@ -3,10 +3,18 @@ var vehicles = require('../models/vehicles');
 exports.vehicles_list = function(req, res) {
 res.send('NOT IMPLEMENTED: vehicles list');
 };
-// for a specific vehicles.
-exports.vehicles_detail = function(req, res) {
-res.send('NOT IMPLEMENTED: vehicles detail: ' + req.params.id);
+
+exports.vehicles_detail = async function(req, res) {
+console.log("detail" + req.params.id)
+try {
+result = await vehicles.findById( req.params.id)
+res.send(result)
+} catch (error) {
+res.status(500)
+res.send(`{"error": document for id ${req.params.id} not found`);
+}
 };
+
 // Handle vehicles create on POST.
 exports.vehicles_create_post = function(req, res) {
 res.send('NOT IMPLEMENTED: vehicles create POST');
@@ -61,8 +69,4 @@ exports.vehicles_create_post = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
     };
-    
-    
-
-
-
+   

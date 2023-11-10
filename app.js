@@ -61,7 +61,7 @@ console.log("Connection to DB succeeded")});
 //server start
 async function recreateDB(){
 // Delete everything
-await vehicles.deleteMany();
+await vehicles.deleteMany().maxTimeMS(20000);
 let instance1 = new
 vehicles({name:"Audi", mileage:'20',
 price:15});
