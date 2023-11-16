@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1= title
+    - let vehiclesid = toShow._id
+    - let vehicles_name = toShow.name
+    - let vehicles_mileage = toShow.mileage
+    - let vehicles_price = toShow.price
+    div.container
+        div.row
+            div.col-md-6
+                div.card
+                    div.card-body
+                        div.row.mb-2
+                            div.col-sm-6.vehiclesAttr Vehicles ID is:
+                            div.col-sm-6 #{vehiclesid}
+                        div.row.mb-2
+                            div.col-sm-6.vehiclesAttr Vehicles name is:
+                            div.col-sm-6 #{vehicles_name}
+                        div.row.mb-2
+                            div.col-sm-6.vehiclesAttr Vehicles Mileage is:
+                            div.col-sm-6 #{vehicles_mileage}
+                        div.row.mb-2
+                            div.col-sm-6.vehiclesAttr Vehicles Price is:
+                            div.col-sm-6 #{vehicles_price}
