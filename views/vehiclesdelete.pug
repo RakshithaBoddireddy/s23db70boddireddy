@@ -31,7 +31,7 @@ block content
  script.
     function cancel() {
         // Go back to the home page for the costume collection
-        window.location.href='/costumes'
+        window.location.href='/vehicles'
     }
  script.
      function deleteOnid() {
@@ -43,7 +43,7 @@ block content
             return resp.json(); // or resp.text() or whatever the server sends
         }).then((body) => {
             alert("Delete succeded")
-            window.location.href='/costumes'
+            window.location.href='/vehicles'
             // TODO handle body
         }).catch((error) => {
             // TODO handle error

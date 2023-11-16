@@ -12,6 +12,7 @@ block content
             label.vehiclesAttr(for='price') Vehicle price
             input#price(type='number', name='price')
         input(type="submit")
+        
     script.
         document.forms['VehiclesForm'].addEventListener('submit', (event) => {
             event.preventDefault();
