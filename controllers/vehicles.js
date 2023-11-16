@@ -111,7 +111,7 @@ exports.vehicles_update_Page = async function (req, res) {
 exports.vehicles_delete_Page = async function (req, res) {
     console.log("Delete view for id " + req.query.id)
     try {
-        result = await Vehicles.findById(req.query.id)
+        result = await vehicles.findById(req.query.id)
         res.render('vehiclesdelete', {
             title: 'Vehicles Delete', toShow: result});
     }
