@@ -10,3 +10,15 @@ a {
   background-color: aquamarine;
   width: 120px;
  }
+
+ #vehiclesForm {
+  background-color: blueviolet;
+  width: 365px;
+  font-size: medium;
+  text-align: center;
+}
+
+h1{
+  color: yellow;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
