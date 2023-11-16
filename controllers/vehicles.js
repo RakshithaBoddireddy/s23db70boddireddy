@@ -62,18 +62,21 @@ exports.vehicles_list = async function(req, res) {
     }
     };
 
-    // Handle a show one view with id specified by query
-exports.vehicles_view_one_Page = async function (req, res) {
-    console.log("single view for id " + req.query.id)
-    try {
-        result = await Vehicles.findById(req.query.id)
-        res.render('vehiclesdetail', { title: 'Vehicles Detail', toShow: result });
-    }
-    catch (err) {
+    //Screenshot 6 code
+    exports.vehicles_view_one_Page = async function(req, res) {
+        console.log("single view for id " + req.query.id)
+        try{
+        result = await vehicles.findById( req.query.id)
+        res.render('vehiclesdetail', 
+       { title: 'vehicles Detail', toShow: result });
+        }
+        catch(err){
         res.status(500)
         res.send(`{'error': '${err}'}`);
-    }
-};
+        }
+       };
+
+
 
     // Handle building the view for creating a vehicle.
     // No body, no in path parameter, no query.
