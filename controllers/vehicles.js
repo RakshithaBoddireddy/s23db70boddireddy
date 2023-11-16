@@ -84,7 +84,7 @@ exports.vehicles_list = async function(req, res) {
 exports.vehicles_create_Page = function(req, res) {
     console.log("create view")
     try{
-    res.render('vehiclescreate', { title: 'vehicles Create'});
+    res.render('vehiclescreate', { title: 'vehicles_Create'});
     }
     catch(err){
     res.status(500)
