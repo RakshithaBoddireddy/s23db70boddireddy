@@ -2,14 +2,20 @@ extends layout
 
 block content
   h1= title
-  - var results =[{name:"Car", mileage:"20000", price:300000},{name:"Bike", mileage:"900", price:100000},{name:"Scooter", mileage:"800", price:50000}]
-  div(class="container-fluid")
-   div(class="row")
-   each v,index  in results 
-    div(class="col-sm-2" onclick =`buy(${index})`) #{v.name}, #{v.mileage}, #{v.price}
-    script.
-        function buy(a)
-        {
-            alert(`You purchased Item ${a+1}`)
-        }
-       
+  - let result = results;
+  - var vehicles = [{name:"Car", mileage:"20000", price:300000},{name:"Bike", mileage:"900", price:100000},{name:"Scooter", mileage:"800", price:50000}]
+  div(class="container-fluid mt-3")
+    div(class="row m-1")
+      each result, index in results 
+        - let destination = `/vehicles/update?id=${result._id}`
+        div(class="col-sm-2", onclick=`buy(${index})`) #{result.name}, #{result.mileage}, #{result.price}
+        button.btn(class="btn-primary ml-1", onclick=`dispatch('${destination}')`) Update
+  script.
+    function buy(a)
+    {
+        alert(`You purchased Item ${a+1}`)
+    }
+
+    function dispatch(path){
+        window.location.href=path
+    }
