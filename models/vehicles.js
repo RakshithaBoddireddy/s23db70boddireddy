@@ -1,3 +1,4 @@
+const { Double } = require("mongodb")
 const mongoose = require("mongoose")
 const vehiclesSchema = mongoose.Schema({
 
@@ -13,8 +14,7 @@ const vehiclesSchema = mongoose.Schema({
         type: Number,
         required: true,
         min: 0,
-        max: 50000
+        max: 100000
     }
 });
-module.exports = mongoose.model("vehicles", 
-vehiclesSchema)
+module.exports = mongoose.model("vehicles", vehiclesSchema)
