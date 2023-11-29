@@ -3,6 +3,7 @@ extends layout
 block content
   h1= title
   - let result = results;
+  a(class="btn btn-success" href="/Gadget/create") Create
   - var vehicles = [{name:"Car", mileage:"20000", price:300000},{name:"Bike", mileage:"900", price:100000},{name:"Scooter", mileage:"800", price:50000}]
   div(class="container-fluid mt-3")
     div(class="row m-1")
@@ -10,6 +11,7 @@ block content
         - let destination = `/vehicles/update?id=${result._id}`
         div(class="col-sm-2", onclick=`buy(${index})`) #{result.name}, #{result.mileage}, #{result.price}
         button.btn(class="btn-primary ml-1", onclick=`dispatch('${destination}')`) Update
+        a(class="btn btn-danger" href=`/Gadget/delete?id=${result._id}`) Delete
   script.
     function buy(a)
     {
