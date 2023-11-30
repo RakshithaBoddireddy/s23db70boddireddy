@@ -6,14 +6,16 @@ var router = express.Router();
 //or
 // redirect to login.
 const secured = (req, res, next) => {
-if (req.user){
-return next();
-}
-res.redirect("/login");
+    if (req.user){
+        return next();
+    }
+    
+    res.redirect("/login");
 }
 
 /* GET home page. */
 router.get('/', vehicles_controller.vehicles_view_all_Page );
+router.get('/vehicles/:id', vehicles_controller.vehicles_detail); 
 /* GET detail vehicles page */
 router.get('/detail', secured, vehicles_controller.vehicles_view_one_Page);
 /* GET create vehicle page */
